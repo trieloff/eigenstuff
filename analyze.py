@@ -1,4 +1,4 @@
-import bs4, itertools, json, matplotlib, numpy, os, random, re, requests, sys, time
+import itertools, subprocess, json, matplotlib, numpy, os, random, re, sys, time
 from matplotlib import pyplot
 
 cache = {}
@@ -7,17 +7,12 @@ if os.path.exists('cache.tsv'):
         q, n = line.strip().split('\t')
         cache[q] = int(n)
 
-def get_n_results_dumb(q):
-    r = requests.get('http://www.google.com/search',
-                     params={'q': q,
-                             "tbs": "li:1"})
-    r.raise_for_status()
-    soup = bs4.BeautifulSoup(r.text)
-    s = soup.find('div', {'id': 'resultStats'}).text
-    if not s:
-        return 0
-    m = re.search(r'([0-9,]+)', s)
-    return int(m.groups()[0].replace(',', ''))
+def get_n_questions(i, j):
+    n = subprocess.check_output(['sh', 'switchlang.sh', i, j])
+    if n=="":
+      return 0
+    return int(n)
+        
 
 data = json.load(open(sys.argv[1]))
 tag = data['tag']
@@ -29,9 +24,7 @@ item2i = dict([(item, i) for i, item in enumerate(items)])
 qs = []
 for item1, item2 in itertools.product(items, items):
     if item1 != item2:
-        for verb in verbs:
-            qs.append((item2i[item1], item2i[item2], '"%s from %s to %s"' % (verb, item1, item2)))
-            qs.append((item2i[item1], item2i[item2], '"%s to %s from %s"' % (verb, item2, item1)))
+        qs.append((item2i[item1], item2i[item2], 'sh switchlang.sh "%s" "%s"' % (item1, item2)))
 
 m = numpy.zeros((len(items), len(items)))
 random.shuffle(qs)
@@ -43,7 +36,7 @@ for i, j, q in qs:
     else:
         sys.stdout.write('%50s...' % q)
         sys.stdout.flush()
-        n = get_n_results_dumb(q)
+        n = get_n_questions(items[i], items[j])
         sys.stdout.write('%9d\n' % n)
         f = open('cache.tsv', 'a')
         f.write('%s\t%d\n' % (q, n))
