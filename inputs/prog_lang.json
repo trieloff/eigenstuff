@@ -1,5 +1,5 @@
 {
     "tag": "prog_lang",
-    "items": ["javascript","java", "c", "c\\\\\\\\+\\\\\\\\+", "c#", "python", "vb.net", "perl", "php", "ruby", "go", "swift", "objective-c", "cobol", "fortran", "lua", "scala", "lisp", "haskell", "rust", "erlang", "clojure", "matlab", "pascal", "r", "kotlin"],
+    "items": ["javascript","java", "c", "c\\\\\\\\+\\\\\\\\+", "c#", "python", "vb.net", "perl", "php", "ruby", "go", "swift", "objective-c", "cobol", "fortran", "lua", "scala", "lisp", "haskell", "rust", "erlang", "clojure", "matlab", "pascal", "r", "kotlin","css","typescript","powershell","groovy","asp.net","coffescript"],
     "verbs": ["switch", "switched", "move", "moved", "code"]
 }
