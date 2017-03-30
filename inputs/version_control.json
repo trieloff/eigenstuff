@@ -1,0 +1,5 @@
+{
+    "tag": "version_control",
+    "items": ["git", "svn", "cvs", "mercurial", "rcs", "bazaar", "bitkeeper", "perforce","tfs", "clearcase", "visual-sourcesafe"],
+    "verbs": ["switch", "switched", "move", "moved"]
+}
