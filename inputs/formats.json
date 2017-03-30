@@ -1,0 +1,5 @@
+{
+    "tag": "formats",
+    "items": ["xml", "json", "text", "html", "yaml"],
+    "verbs": ["switch", "switched", "move", "moved"]
+}
