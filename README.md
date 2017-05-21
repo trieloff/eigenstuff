@@ -11,6 +11,7 @@ Run it like this:
 $ python analyze inputs/database.json
 ```
 
+Hallo Johan.
 
 ![lang](https://raw.githubusercontent.com/trieloff/eigenstuff/master/prog_lang_matrix.png)
 
