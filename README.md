@@ -8,7 +8,7 @@ It also requires the `jq` command line JSON parser.
 
 Run it like this:
 ```
-$ python analyze input.database.json
+$ python analyze inputs/database.json
 ```
 
 
