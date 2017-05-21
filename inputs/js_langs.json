@@ -1,0 +1,5 @@
+{
+    "tag": "JavaScript Languages",
+    "items": ["javascript", "coffeescript", "dart", "typescript", "asm.js", "elm", "objective-j", "skulpt", "kotlin", "scala.js","clojurescript","ghcjs","amber-smalltalk","emscripten","gopherjs"],
+    "verbs": ["switch", "switched", "move", "moved"]
+}
